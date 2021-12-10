@@ -1,5 +1,6 @@
 const express = require('express');
-const userRoutes = require('./src/users/routes')
+const userRoutes = require('./src/users/routes');
+const shelfRoutes = require('./src/shelves/routes');
 
 const app = express();
 const port = 3000;
@@ -11,6 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/users', userRoutes);
+app.use('/api/shelves', shelfRoutes);
 
 app.listen(port, () => {
   console.log(`app listening on  port ${port}` )
