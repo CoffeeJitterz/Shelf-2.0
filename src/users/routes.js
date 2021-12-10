@@ -6,6 +6,8 @@ const router = Router();
 
 router.get('/', controller.getUsers);
 router.get('/:id', controller.getUserById);
-router.get('./:id/shelves', controller.getShelvesByUserId);
+router.get('/:id/shelves', controller.getShelvesByUserId);
+router.get('/:user_id/shelves/:id', controller.getShelfById);
+router.get('/:user_id/shelves/:shelf_id/spines', controller.getSpinesByShelfIdAndUserId);
 
 module.exports = router;

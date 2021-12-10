@@ -15,8 +15,25 @@ const getUserById = (req, res) => {
   })
 }
 const getShelvesByUserId = (req, res) => {
-  const id = parseInt(req.params.id)
+  const user_id = parseInt(req.params.id)
   pool.query(queries.getShelvesByUserId, [user_id], (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows);
+  })
+}
+const getShelfById = (req, res) => {
+  const user_id = req.params.user_id;
+  const id = req.params.id;
+  pool.query(queries.getShelfById, [user_id, id], (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows);
+  })
+}
+const getSpinesByShelfIdAndUserId = (req, res) => {
+  const user_id = req.params.user_id;
+  const shelf_id = req.params.shelf_id;
+  console.log(user_id, shelf_id)
+  pool.query(queries.getSpinesByShelfIdAndUserId, [user_id, shelf_id], (error, results) => {
     if (error) throw error;
     res.status(200).json(results.rows);
   })
@@ -25,5 +42,7 @@ const getShelvesByUserId = (req, res) => {
 module.exports = {
   getUsers,
   getUserById,
-  getShelvesByUserId
+  getShelvesByUserId,
+  getShelfById,
+  getSpinesByShelfIdAndUserId
 }
