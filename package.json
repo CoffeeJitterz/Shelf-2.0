@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "set": "psql -d shelf -f ./src/db/schema/create.sql" 
+    "set": "psql -d shelf -f ./src/db/schema/schema.sql",
+    "seed": "psql -d shelf -f ./src/db/schema/seeds.sql" 
   },
   "repository": {
     "type": "git",
