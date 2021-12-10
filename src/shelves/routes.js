@@ -4,6 +4,6 @@ const controller = require('./controller');
 const router = Router();
 
 router.get('/', controller.getShelves);
-router.get('/:id', controller.getShelfById);
+router.get('/:user_id', controller.getShelvesByUserId);
 
 module.exports = router;

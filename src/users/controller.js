@@ -14,8 +14,16 @@ const getUserById = (req, res) => {
     res.status(200).json(results.rows);
   })
 }
+const getShelvesByUserId = (req, res) => {
+  const id = parseInt(req.params.id)
+  pool.query(queries.getShelvesByUserId, [user_id], (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows);
+  })
+}
 
 module.exports = {
   getUsers,
-  getUserById
+  getUserById,
+  getShelvesByUserId
 }
