@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reset": "psql -U shelf -d scheduler_development < ./src/db/schema/create.sql && psql -U development -d scheduler_development < ./src/db/schema/development.sql"
+    "set": "psql -d shelf -f ./src/db/schema/create.sql" 
   },
   "repository": {
     "type": "git",
