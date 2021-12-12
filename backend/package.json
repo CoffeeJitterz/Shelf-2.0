@@ -1,0 +1,27 @@
+{
+  "name": "shelf-2.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "set": "psql -d shelf -f ./src/db/schema/schema.sql",
+    "seed": "psql -d shelf -f ./src/db/schema/seeds.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoffeeJitterz/Shelf-2.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoffeeJitterz/Shelf-2.0/issues"
+  },
+  "homepage": "https://github.com/CoffeeJitterz/Shelf-2.0#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1"
+  }
+}
