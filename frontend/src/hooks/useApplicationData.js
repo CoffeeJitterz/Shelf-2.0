@@ -2,12 +2,12 @@ import React, {useState} from "react"
 import axios from 'axios'
 
 export function useApplicationData () {
-  const [data, setData] = useState();
+  const [shelves, setShelves] = useState();
 
-  const handleGet = (param) => {
-    return axios.get(`http://localhost:3000/api/${param}`).then(res => {
-      setData(res.data)
+  const handleGetShelves = (user_id) => {
+    return axios.get(`http://localhost:3000/api/users/${user_id}/shelves`).then(res => {
+      setShelves(res.data)
     })
   }
-  return { data, handleGet }
+  return { shelves, handleGetShelves }
 }

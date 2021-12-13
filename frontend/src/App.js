@@ -5,16 +5,16 @@ import './App.css';
 
 function App() {
   //destructure useApplicationData
-const { data, handleGet } = useApplicationData();
+const { shelves, handleGetShelves } = useApplicationData();
 
 useEffect(() => {
-  handleGet('users');
+  handleGetShelves(1);
 }, []);
-console.log("I am data", data)
-const output = Array.isArray(data) && data.map(item => {
-  console.log(item.username)
+const output = Array.isArray(shelves) && shelves.map(shelf => {
   return <Spines 
-            name={item.username}
+            name={shelf.name}
+            color={shelf.color}
+            font={shelf.font}
           />
 })
   return (
