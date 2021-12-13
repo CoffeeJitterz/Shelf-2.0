@@ -19,7 +19,6 @@ const output = Array.isArray(shelves) && shelves.map(shelf => {
 })
   return (
     <div className="App">
-      <p>MY SITE</p>
       {output}
     </div>
   );
