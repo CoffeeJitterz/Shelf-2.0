@@ -1,13 +1,15 @@
-import logo from './logo.svg';
+import React, {useEffect} from "react";
+import { useApplicationData} from "./hooks/useApplicationData";
 import './App.css';
-import React, { useState } from 'react';
-import axios from 'axios';
 
 function App() {
-  const [state, setState] = useState('default')
-  axios.get(`http://localhost:3000/api/users/1/shelves`).then (res => {
-    
-  })
+  //destructure useApplicationData
+const { handleGet } = useApplicationData();
+
+useEffect(() => {
+  handleGet('users')
+}, []);
+
   return (
     <div className="App">
       <p>MY SITE</p>
