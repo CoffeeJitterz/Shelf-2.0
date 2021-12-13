@@ -4,12 +4,15 @@ import './App.css';
 
 function App() {
   //destructure useApplicationData
-const { handleGet } = useApplicationData();
+const { data, handleGet } = useApplicationData();
 
 useEffect(() => {
-  handleGet('users')
+  handleGet('users');
 }, []);
-
+console.log("I am data", data)
+const output = Array.isArray(data) && data.map(item => {
+  
+})
   return (
     <div className="App">
       <p>MY SITE</p>
