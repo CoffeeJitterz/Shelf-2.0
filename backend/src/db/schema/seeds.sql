@@ -24,7 +24,7 @@ VALUES
 ('Search Engines', 'c9324e', 'Arial', 1),
 ('Funny Pages', '5dc3c7', 'comicsans', 1),
 ('Shopping', '9c66ff', 'Arial', 1),
-('Games', '#ff0392', 'comicsans', 1);
+('Games', 'ff0392', 'comicsans', 1);
 
 INSERT INTO spines (name, color, font, shelf_id, website_id)
 VALUES
