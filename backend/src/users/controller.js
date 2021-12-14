@@ -38,13 +38,6 @@ const getSpinesByShelfIdAndUserId = (req, res) => {
     res.status(200).json(results.rows);
   });
 };
-const getSpines = (req, res) => {
-  const user_id = req.params.user_id;
-  pool.query(queries.getSpines, [user_id], (error, results) => {
-    if (error) throw error;
-    res.status(200).json(results.rows);
-  });
-};
 
 module.exports = {
   getUsers,
