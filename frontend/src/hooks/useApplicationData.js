@@ -9,5 +9,7 @@ export function useApplicationData () {
       setShelves(res.data)
     })
   }
+
+  const handleGetSpines = ()
   return { shelves, handleGetShelves }
 }
