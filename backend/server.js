@@ -1,6 +1,7 @@
 const express = require('express');
 const userRoutes = require('./src/users/routes');
 const shelfRoutes = require('./src/shelves/routes');
+const spineRoutes = require('./src/spines/routes')
 const cors = require('cors')
 
 const app = express();
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/shelves', shelfRoutes);
+app.use('/api/spines', spineRoutes);
 
 app.listen(port, () => {
   console.log(`app listening on  port ${port}` )

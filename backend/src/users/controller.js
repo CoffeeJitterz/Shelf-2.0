@@ -45,5 +45,4 @@ module.exports = {
   getShelvesByUserId,
   getShelfById,
   getSpinesByShelfIdAndUserId,
-  getSpines
 }
