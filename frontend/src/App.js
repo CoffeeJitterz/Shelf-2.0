@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import { useApplicationData} from "./hooks/useApplicationData";
+import { dataHelper } from "./helpers/dataHelper";
 import Spines from './components/Spines';
 import Shelves from './components/Shelves';
 import './App.css';
@@ -14,6 +15,8 @@ useEffect(() => {
 useEffect(() => {
   handleGetSpines(1)
 }, []);
+
+dataHelper(shelves)
 const output = Array.isArray(shelves) && shelves.map(shelf => {
   return <Shelves
             name={shelf.name}
