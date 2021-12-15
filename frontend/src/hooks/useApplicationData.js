@@ -3,13 +3,18 @@ import axios from 'axios'
 
 export function useApplicationData () {
   const [shelves, setShelves] = useState();
+  const [spines, setSpines] = useState();
 
   const handleGetShelves = (user_id) => {
-    return axios.get(`http://localhost:3000/api/users/${user_id}/shelves`).then(res => {
+    return axios.get(`http://localhost:3000/api/shelves/${user_id}`).then(res => {
       setShelves(res.data)
     })
   }
 
-  const handleGetSpines = ()
-  return { shelves, handleGetShelves }
+  const handleGetSpines = (user_id) => {
+    return axios.get(`http://localhost:3000/api/spines/${user_id}`).then(res => {
+      setSpines(res.data)
+    })
+  }
+  return { shelves, spines, handleGetShelves, handleGetSpines }
 }

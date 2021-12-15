@@ -1,20 +1,25 @@
 import React, {useEffect} from "react";
 import { useApplicationData} from "./hooks/useApplicationData";
-import Spines from './components/Spines'
+import Spines from './components/Spines';
+import Shelves from './components/Shelves';
 import './App.css';
 
 function App() {
   //destructure useApplicationData
-const { shelves, handleGetShelves } = useApplicationData();
+const { shelves, spines, handleGetShelves, handleGetSpines } = useApplicationData();
 
 useEffect(() => {
   handleGetShelves(1);
 }, []);
+useEffect(() => {
+  handleGetSpines(1)
+}, []);
 const output = Array.isArray(shelves) && shelves.map(shelf => {
-  return <Spines 
+  return <Shelves
             name={shelf.name}
             color={shelf.color}
             font={shelf.font}
+            spines={spines}
           />
 })
   return (
