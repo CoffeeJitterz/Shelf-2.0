@@ -16,5 +16,5 @@ export function useApplicationData () {
       setSpines(res.data)
     })
   }
-  return { shelves, spines, handleGetShelves, handleGetSpines }
+  return { shelves, setShelves, spines, handleGetShelves, handleGetSpines }
 }

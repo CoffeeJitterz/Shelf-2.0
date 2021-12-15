@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import { useApplicationData} from "./hooks/useApplicationData";
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
 import { dataHelper } from "./helpers/dataHelper";
 import Spines from './components/Spines';
 import Shelves from './components/Shelves';
@@ -7,14 +7,30 @@ import './App.css';
 
 function App() {
   //destructure useApplicationData
-const { shelves, spines, handleGetShelves, handleGetSpines } = useApplicationData();
 
+const [shelves, setShelves] = useState('shelves');
+const [spines, setSpines] = useState('spines');
 useEffect(() => {
-  handleGetShelves(1);
-  handleGetSpines(1);
+  const user_id = 1;
+  axios.get(`http://localhost:3000/api/shelves/${user_id}`).then(res => {
+    setShelves(res.data);
+    console.log(shelves);
+    axios.get(`http://localhost:3000/api/spines/${user_id}`).then(res => {
+      setSpines(res.data);
+      console.log(spines);
+    });
+  })
 }, []);
-console.log(shelves[1])
-dataHelper(shelves, spines)
+const shelfBuilder = (array1, array2) => {
+  console.log(array1[1]);
+  console.log(array2[1]);
+  const output = [];
+  array1.map(item => output.push(item))
+  console.log("output",output)
+};
+useEffect(() => {
+  shelfBuilder(spines, shelves)
+}, [setSpines])
 
 const output = Array.isArray(shelves) && shelves.map(shelf => {
   return <Shelves
