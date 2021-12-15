@@ -11,14 +11,15 @@ const { shelves, spines, handleGetShelves, handleGetSpines } = useApplicationDat
 
 useEffect(() => {
   handleGetShelves(1);
+  handleGetSpines(1);
 }, []);
-useEffect(() => {
-  handleGetSpines(1)
-}, []);
+console.log(shelves[1])
+dataHelper(shelves, spines)
 
-dataHelper(shelves)
 const output = Array.isArray(shelves) && shelves.map(shelf => {
   return <Shelves
+            key={shelf.id}
+            shelfId={shelf.id}
             name={shelf.name}
             color={shelf.color}
             font={shelf.font}

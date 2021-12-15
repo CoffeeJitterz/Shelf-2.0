@@ -1,8 +1,9 @@
 export default function Spines(props) {
-  const {name, color, font} = props;
+  const {name, color, font, shelfId} = props;
   return(
     <div>
-      <p>{name}</p>
+      {name}
+      {shelfId}
     </div>
   )
 }
